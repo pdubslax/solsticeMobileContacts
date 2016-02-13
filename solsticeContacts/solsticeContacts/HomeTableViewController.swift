@@ -138,8 +138,16 @@ class HomeTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let backItem = UIBarButtonItem()
         backItem.title = "All Contacts"
+        
+        UIBarButtonItem.appearance()
+            .setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "AvenirNext-Regular", size: 20)!],
+                forState: UIControlState.Normal)
+        
         navigationItem.backBarButtonItem = backItem
         navigationController?.navigationBar.tintColor = UIColor.blackColor()
+        
+        
+        
         
         let dest = segue.destinationViewController as! DetailTableViewController
         dest.contact = sender as! Contact

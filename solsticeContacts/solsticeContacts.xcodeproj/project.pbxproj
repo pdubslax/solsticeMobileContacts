@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B2849DD1C6F84ED0061B04C /* NameDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2849DC1C6F84ED0061B04C /* NameDetailTableViewCell.swift */; };
+		8B2849DF1C6F89EE0061B04C /* ContactDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2849DE1C6F89EE0061B04C /* ContactDetail.swift */; };
 		8B4453841C6EAFBC00B8A584 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4453831C6EAFBC00B8A584 /* AppDelegate.swift */; };
 		8B4453891C6EAFBC00B8A584 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4453871C6EAFBC00B8A584 /* Main.storyboard */; };
 		8B44538B1C6EAFBC00B8A584 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B44538A1C6EAFBC00B8A584 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B2849DC1C6F84ED0061B04C /* NameDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameDetailTableViewCell.swift; sourceTree = "<group>"; };
+		8B2849DE1C6F89EE0061B04C /* ContactDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetail.swift; sourceTree = "<group>"; };
 		8B4453801C6EAFBC00B8A584 /* solsticeContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = solsticeContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B4453831C6EAFBC00B8A584 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B4453881C6EAFBC00B8A584 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -43,6 +47,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B2849D71C6F83F60061B04C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8B2849D81C6F84100061B04C /* Cells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		8B2849D81C6F84100061B04C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8B7355C61C6EDCDB009CDAF7 /* MainTableViewCell.swift */,
+				8B7355C71C6EDCDB009CDAF7 /* MainTableViewCell.xib */,
+				8B2849DC1C6F84ED0061B04C /* NameDetailTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		8B2849DA1C6F84390061B04C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8B7355CA1C6F0F5D009CDAF7 /* DetailTableViewController.swift */,
+				8B7355C41C6ED935009CDAF7 /* HomeTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8B2849DB1C6F844E0061B04C /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				8B7355C21C6ED4AA009CDAF7 /* Contact.swift */,
+				8B2849DE1C6F89EE0061B04C /* ContactDetail.swift */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
 		8B4453771C6EAFBC00B8A584 = {
 			isa = PBXGroup;
 			children = (
@@ -62,13 +102,11 @@
 		8B4453821C6EAFBC00B8A584 /* solsticeContacts */ = {
 			isa = PBXGroup;
 			children = (
-				8B7355C21C6ED4AA009CDAF7 /* Contact.swift */,
+				8B2849DB1C6F844E0061B04C /* Objects */,
+				8B2849DA1C6F84390061B04C /* ViewControllers */,
+				8B2849D71C6F83F60061B04C /* Views */,
 				8B4453831C6EAFBC00B8A584 /* AppDelegate.swift */,
 				8B4453871C6EAFBC00B8A584 /* Main.storyboard */,
-				8B7355C61C6EDCDB009CDAF7 /* MainTableViewCell.swift */,
-				8B7355C71C6EDCDB009CDAF7 /* MainTableViewCell.xib */,
-				8B7355CA1C6F0F5D009CDAF7 /* DetailTableViewController.swift */,
-				8B7355C41C6ED935009CDAF7 /* HomeTableViewController.swift */,
 				8B44538A1C6EAFBC00B8A584 /* Assets.xcassets */,
 				8B44538C1C6EAFBC00B8A584 /* LaunchScreen.storyboard */,
 				8B44538F1C6EAFBC00B8A584 /* Info.plist */,
@@ -149,7 +187,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B2849DF1C6F89EE0061B04C /* ContactDetail.swift in Sources */,
 				8B7355C51C6ED935009CDAF7 /* HomeTableViewController.swift in Sources */,
+				8B2849DD1C6F84ED0061B04C /* NameDetailTableViewCell.swift in Sources */,
 				8B7355CB1C6F0F5D009CDAF7 /* DetailTableViewController.swift in Sources */,
 				8B7355C31C6ED4AA009CDAF7 /* Contact.swift in Sources */,
 				8B7355C81C6EDCDB009CDAF7 /* MainTableViewCell.swift in Sources */,

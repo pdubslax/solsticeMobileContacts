@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Solstice Mobile Contacts-->
@@ -31,18 +32,84 @@
         <scene sceneID="cq7-bg-WcL">
             <objects>
                 <tableViewController storyboardIdentifier="DetailTableViewControllerID" id="slU-6R-6IH" customClass="DetailTableViewController" customModule="solsticeContacts" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dGr-0M-ROF">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="dGr-0M-ROF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Nz7-lE-5Yw">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nameDetailViewCell" rowHeight="120" id="Nz7-lE-5Yw" customClass="NameDetailTableViewCell" customModule="solsticeContacts" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nz7-lE-5Yw" id="BiO-a6-yl2">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="119"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rOI-e9-3lJ">
+                                            <rect key="frame" x="18" y="10" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="ltt-w6-b6P"/>
+                                                <constraint firstAttribute="width" constant="100" id="s3M-n0-Foe"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMY-EE-ULJ">
+                                            <rect key="frame" x="154" y="10" width="50" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="RzJ-yR-RRs"/>
+                                                <constraint firstAttribute="width" constant="50" id="Xvf-8a-aui"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patrick Wilson" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="rkk-Ie-FA1">
+                                            <rect key="frame" x="154" y="32" width="428" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="26" id="Mc3-v0-ZzI"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="19"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMJ-uu-aQT">
+                                            <rect key="frame" x="154" y="61" width="78" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="78" id="5gd-Wm-dBR"/>
+                                                <constraint firstAttribute="height" constant="21" id="MtY-cc-7LM"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Solstice Mobile" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="ADK-im-1HM">
+                                            <rect key="frame" x="154" y="83" width="428" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="26" id="F7x-m3-h38"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="19"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="rkk-Ie-FA1" firstAttribute="top" secondItem="QMY-EE-ULJ" secondAttribute="bottom" constant="1" id="2IF-zp-YRp"/>
+                                        <constraint firstItem="ADK-im-1HM" firstAttribute="top" secondItem="sMJ-uu-aQT" secondAttribute="bottom" constant="1" id="62o-th-fUd"/>
+                                        <constraint firstItem="rOI-e9-3lJ" firstAttribute="leading" secondItem="BiO-a6-yl2" secondAttribute="leadingMargin" constant="10" id="DQ7-qe-Iz2"/>
+                                        <constraint firstItem="sMJ-uu-aQT" firstAttribute="top" secondItem="rkk-Ie-FA1" secondAttribute="bottom" constant="3" id="E22-bZ-c3a"/>
+                                        <constraint firstItem="rOI-e9-3lJ" firstAttribute="centerY" secondItem="BiO-a6-yl2" secondAttribute="centerY" id="Few-h4-RYJ"/>
+                                        <constraint firstItem="ADK-im-1HM" firstAttribute="leading" secondItem="sMJ-uu-aQT" secondAttribute="leading" id="MOp-28-ovu"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ADK-im-1HM" secondAttribute="trailing" constant="10" id="OZH-uz-Kde"/>
+                                        <constraint firstItem="QMY-EE-ULJ" firstAttribute="top" secondItem="BiO-a6-yl2" secondAttribute="topMargin" constant="2" id="ZK8-al-2bx"/>
+                                        <constraint firstItem="QMY-EE-ULJ" firstAttribute="leading" secondItem="rkk-Ie-FA1" secondAttribute="leading" id="beE-T0-oRe"/>
+                                        <constraint firstItem="sMJ-uu-aQT" firstAttribute="leading" secondItem="rkk-Ie-FA1" secondAttribute="leading" id="pPh-pq-DmY"/>
+                                        <constraint firstItem="QMY-EE-ULJ" firstAttribute="leading" secondItem="rOI-e9-3lJ" secondAttribute="trailing" constant="36" id="rBd-R6-e7x"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="rkk-Ie-FA1" secondAttribute="trailing" constant="10" id="tkl-J7-upB"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bigImageView" destination="rOI-e9-3lJ" id="fhZ-RD-kZV"/>
+                                    <outlet property="companyLabel" destination="ADK-im-1HM" id="vx0-u5-aPa"/>
+                                    <outlet property="nameLabel" destination="rkk-Ie-FA1" id="m3c-Ek-L0y"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -52,6 +119,13 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GXt-ky-lHZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationBar contentMode="scaleToFill" id="mcY-0A-2Jn">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <items>
+                        <navigationItem title="Title" id="uAd-Mg-mci"/>
+                    </items>
+                </navigationBar>
             </objects>
             <point key="canvasLocation" x="2911" y="2109"/>
         </scene>
