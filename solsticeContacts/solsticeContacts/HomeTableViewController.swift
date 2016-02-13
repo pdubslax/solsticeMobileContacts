@@ -13,6 +13,7 @@ class HomeTableViewController: UITableViewController {
     
     
     var contactList:[Contact] = []
+    var imageList:[UIImage] = []
     
     override func viewDidLoad() {
         
@@ -45,24 +46,11 @@ class HomeTableViewController: UITableViewController {
                         let dictResult = json.objectAtIndex(i) as! NSDictionary
                         let newContact = Contact(birthdate: dictResult.objectForKey("birthdate") as! String, company: dictResult.objectForKey("company") as! String, detailsURL: dictResult.objectForKey("detailsURL") as! String, employeeID: dictResult.objectForKey("employeeId") as! NSNumber, name: dictResult.objectForKey("name") as! String, phone: dictResult.objectForKey("phone") as! NSMutableDictionary, smallImageURL: dictResult.objectForKey("smallImageURL") as! String)
                         self.contactList.append(newContact)
+                        self.imageList.append(UIImage())
+                        self.downloadImage(NSURL(string: newContact.smallImageURL)!,index: i)
                     }
                     self.tableView.reloadData()
                     
-                    
-                    //                    if let stations = json["stations"] as? [[String: AnyObject]] {
-                    //
-                    //                        for station in stations {
-                    //
-                    //                            if let name = station["stationName"] as? String {
-                    //
-                    //                                if let year = station["buildYear"] as? String {
-                    //                                    NSLog("%@ (Built %@)",name,year)
-                    //                                }
-                    //
-                    //                            }
-                    //                        }
-                    //
-                    //                    }
                     
                 }catch {
                     print("Error with Json: \(error)")
@@ -102,7 +90,7 @@ class HomeTableViewController: UITableViewController {
         cell.nameLabel?.text = self.contactList[indexPath.row].name
         
         
-        cell.loadPictureAtURL(self.contactList[indexPath.row].smallImageURL)
+        cell.mainImageView.image = self.imageList[indexPath.row]
         
 
         return cell
@@ -111,6 +99,28 @@ class HomeTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 100;
         
+    }
+    
+    func downloadImage(url: NSURL, index :Int) {
+        print("Download Started")
+        print("lastPathComponent: " + (url.lastPathComponent ?? ""))
+        getDataFromUrl(url) { (data, response, error)  in
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                guard let data = data where error == nil else { return }
+                print(response?.suggestedFilename ?? "")
+                print("Download Finished")
+                let newImage = UIImage(data: data)
+                self.imageList[index] = newImage!
+                self.tableView.reloadData()
+                
+            }
+        }
+    }
+    
+    func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
+        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
+            completion(data: data, response: response, error: error)
+            }.resume()
     }
     
 
