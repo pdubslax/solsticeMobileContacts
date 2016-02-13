@@ -7,56 +7,38 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
 
 class DetailTableViewController: UITableViewController {
 
     var contact : Contact = Contact.init()
     var contactDetailObject : ContactDetail = ContactDetail.init()
-    var isFavorited : Bool = true
     var bigImage : UIImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        UIButton *settingsView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 61, 30)];
-//        [settingsView addTarget:self action:@selector(SettingsClicked) forControlEvents:UIControlEventTouchUpInside];
-//        [settingsView setBackgroundImage:[UIImage imageNamed:@"settings"] forState:UIControlStateNormal];
-//        UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithCustomView:settingsView];
-//        [self.navigationItem setRightBarButtonItem:settingsButton];
-        
-        let testButton : UIButton = UIButton.init(frame: CGRectMake(0, 0, 30, 30))
-        testButton.setBackgroundImage(UIImage(named:"edit"), forState: UIControlState.Normal)
-        let editButton : UIBarButtonItem = UIBarButtonItem.init(customView: testButton)
-        
-        let testButton2 : UIButton = UIButton.init(frame: CGRectMake(0, 0, 30, 30))
-        testButton2.setBackgroundImage(UIImage(named:"star"), forState: UIControlState.Normal)
-        testButton2.addTarget(self, action: "favorite", forControlEvents: UIControlEvents.TouchUpInside)
-        let starButton : UIBarButtonItem = UIBarButtonItem.init(customView: testButton2)
-      
-       
-        self.navigationItem.rightBarButtonItems = [editButton,starButton]
-        
         self.getJSONDataForDetails()
+        
+        self.favorite()
+        
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     func favorite(){
-        let testButton : UIButton = UIButton.init(frame: CGRectMake(0, 0, 30, 30))
+        let testButton : UIButton = UIButton.init(frame: CGRectMake(0, 0, 25, 25))
         testButton.setBackgroundImage(UIImage(named:"edit"), forState: UIControlState.Normal)
         let editButton : UIBarButtonItem = UIBarButtonItem.init(customView: testButton)
         
-        let testButton2 : UIButton = UIButton.init(frame: CGRectMake(0, 0, 30, 30))
-        if self.isFavorited{
+        let testButton2 : UIButton = UIButton.init(frame: CGRectMake(0, 0, 25, 25))
+        if self.contactDetailObject.favorite{
             testButton2.setBackgroundImage(UIImage(named:"fillStar"), forState: UIControlState.Normal)
-            self.isFavorited = false
+            self.contactDetailObject.favorite = false
         }else{
             testButton2.setBackgroundImage(UIImage(named:"star"), forState: UIControlState.Normal)
-            self.isFavorited = true
+            self.contactDetailObject.favorite = true
         }
         testButton2.addTarget(self, action: "favorite", forControlEvents: UIControlEvents.TouchUpInside)
         let starButton : UIBarButtonItem = UIBarButtonItem.init(customView: testButton2)
@@ -84,6 +66,7 @@ class DetailTableViewController: UITableViewController {
                         
                     self.contactDetailObject = newContactDetail
                     self.downloadImage(NSURL(string: newContactDetail.largeImageURL)!)
+                    
                     
                     self.tableView.reloadData()
                     
@@ -129,28 +112,131 @@ class DetailTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 3
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        if section==0{
+            return 1
+        }else if section == 1{
+            return 3
+        }else if section == 2{
+            return 1
+        }
+        return 0
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("nameDetailViewCell")! as! NameDetailTableViewCell
-        cell.nameLabel.text = self.contact.name
-        cell.companyLabel.text = self.contact.company
-        cell.bigImageView?.image = self.bigImage
+        if indexPath.section==0{
+            let cell = tableView.dequeueReusableCellWithIdentifier("nameDetailViewCell")! as! NameDetailTableViewCell
+            cell.nameLabel.text = self.contact.name
+            cell.companyLabel.text = self.contact.company
+            cell.bigImageView?.image = self.bigImage
+        
+            return cell
+        }
+        else if indexPath.section==1{
+            let phoneOrder = ["work","home","mobile"]
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("phoneListingCell")!
+            var titleWord = phoneOrder[indexPath.row] 
+            titleWord.replaceRange(titleWord.startIndex...titleWord.startIndex, with: String(titleWord[titleWord.startIndex]).capitalizedString)
 
-        return cell
+            cell.detailTextLabel?.text = titleWord
+            cell.textLabel?.text = self.contact.phone.objectForKey(phoneOrder[indexPath.row]) as? String
+            return cell
+        }
+        else if indexPath.section==2{
+            let cell = tableView.dequeueReusableCellWithIdentifier("phoneListingCell")!
+            cell.textLabel?.numberOfLines = 2
+            
+            cell.detailTextLabel?.text = ""
+            cell.textLabel?.text = (self.contactDetailObject.address.objectForKey("street") as? String)! + " \n" + (self.contactDetailObject.address.objectForKey("city") as? String)! + ", " + (self.contactDetailObject.address.objectForKey("state") as? String)! + " " + (self.contactDetailObject.address.objectForKey("zip") as? String)!
+            
+            return cell
+        }
+        else{
+            let cell = tableView.dequeueReusableCellWithIdentifier("phoneListingCell")!
+            return cell
+        }
+        
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 120;
+        if indexPath.section==0{
+            return 120.0
+        }else if indexPath.section==1{
+            return 35.0
+        }else if indexPath.section==2{
+            return 60.0
+        }else{
+            return 40.0
+        }
         
     }
+    
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
+    {
+        let header = view as! UITableViewHeaderFooterView
+        header.contentView.backgroundColor = UIColor.whiteColor()
+        if section == 1{
+            header.textLabel?.text = "Phone:"
+        }
+        else if section == 2{
+            header.textLabel?.text = "Address:"
+        }
+        header.textLabel?.font = UIFont(name: "AvenirNext-Medium", size: 18)!
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int)
+    {
+        let footer = view as! UITableViewHeaderFooterView
+        footer.contentView.backgroundColor = UIColor.whiteColor()
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? 0.0 : 20.0
+    }
+    
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 30.0
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        if indexPath.section == 1{
+            let phoneOrder = ["work","home","mobile"]
+            let number = self.contact.phone.objectForKey(phoneOrder[indexPath.row]) as? String
+            let cleanedNumber = number!.stringByReplacingOccurrencesOfString("-", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            if cleanedNumber.characters.count > 0{
+                UIApplication.sharedApplication().openURL(NSURL(string: "tel://" + cleanedNumber)!)
+            }
+        }else if indexPath.section == 2{
+            let lat1 : NSString = (self.contactDetailObject.address.objectForKey("latitude") as? NSNumber)!.stringValue
+            let lng1 : NSString = (self.contactDetailObject.address.objectForKey("longitude") as? NSNumber)!.stringValue
+            
+            let latitute :CLLocationDegrees =  lat1.doubleValue
+            let longitute:CLLocationDegrees =  lng1.doubleValue
+            
+            let regionDistance:CLLocationDistance = 10000
+            let coordinates = CLLocationCoordinate2DMake(latitute, longitute)
+            let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+            let options = [
+                MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: regionSpan.center),
+                MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
+            ]
+            let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+            let mapItem = MKMapItem(placemark: placemark)
+            mapItem.name = self.contact.name
+            mapItem.openInMapsWithLaunchOptions(options)
+        
+        }
+        
+        
+    }
+
 
 
     /*
