@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" rowHeight="94" id="KGk-i7-Jjw" customClass="MainTableViewCell" customModule="solsticeContacts" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09G-XU-uWQ">
+                        <rect key="frame" x="139" y="39" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eDV-2K-qif">
+                        <rect key="frame" x="8" y="5" width="90" height="90"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="ek9-32-OJM"/>
+                            <constraint firstAttribute="height" constant="90" id="kPI-7B-qXr"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="09G-XU-uWQ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="H0j-bZ-BYt"/>
+                    <constraint firstItem="eDV-2K-qif" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cCE-YR-sBu"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="eDV-2K-qif" secondAttribute="leading" id="iF3-ps-rec"/>
+                    <constraint firstItem="09G-XU-uWQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nKF-bU-OBV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="mainImageView" destination="eDV-2K-qif" id="fGF-u9-dEf"/>
+                <outlet property="nameLabel" destination="09G-XU-uWQ" id="tpv-Py-g7C"/>
+            </connections>
+            <point key="canvasLocation" x="600" y="508"/>
+        </tableViewCell>
+    </objects>
+</document>

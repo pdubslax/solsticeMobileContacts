@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		8B4453841C6EAFBC00B8A584 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4453831C6EAFBC00B8A584 /* AppDelegate.swift */; };
-		8B4453861C6EAFBC00B8A584 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4453851C6EAFBC00B8A584 /* ViewController.swift */; };
 		8B4453891C6EAFBC00B8A584 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4453871C6EAFBC00B8A584 /* Main.storyboard */; };
 		8B44538B1C6EAFBC00B8A584 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B44538A1C6EAFBC00B8A584 /* Assets.xcassets */; };
 		8B44538E1C6EAFBC00B8A584 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B44538C1C6EAFBC00B8A584 /* LaunchScreen.storyboard */; };
+		8B7355C31C6ED4AA009CDAF7 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7355C21C6ED4AA009CDAF7 /* Contact.swift */; };
+		8B7355C51C6ED935009CDAF7 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7355C41C6ED935009CDAF7 /* HomeTableViewController.swift */; };
+		8B7355C81C6EDCDB009CDAF7 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7355C61C6EDCDB009CDAF7 /* MainTableViewCell.swift */; };
+		8B7355C91C6EDCDB009CDAF7 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B7355C71C6EDCDB009CDAF7 /* MainTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8B4453801C6EAFBC00B8A584 /* solsticeContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = solsticeContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B4453831C6EAFBC00B8A584 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8B4453851C6EAFBC00B8A584 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8B4453881C6EAFBC00B8A584 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B44538A1C6EAFBC00B8A584 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B44538D1C6EAFBC00B8A584 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B44538F1C6EAFBC00B8A584 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B7355C21C6ED4AA009CDAF7 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contact.swift; path = solsticeContacts/Contact.swift; sourceTree = "<group>"; };
+		8B7355C41C6ED935009CDAF7 /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		8B7355C61C6EDCDB009CDAF7 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		8B7355C71C6EDCDB009CDAF7 /* MainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +44,7 @@
 		8B4453771C6EAFBC00B8A584 = {
 			isa = PBXGroup;
 			children = (
+				8B7355C21C6ED4AA009CDAF7 /* Contact.swift */,
 				8B4453821C6EAFBC00B8A584 /* solsticeContacts */,
 				8B4453811C6EAFBC00B8A584 /* Products */,
 			);
@@ -55,8 +62,10 @@
 			isa = PBXGroup;
 			children = (
 				8B4453831C6EAFBC00B8A584 /* AppDelegate.swift */,
-				8B4453851C6EAFBC00B8A584 /* ViewController.swift */,
 				8B4453871C6EAFBC00B8A584 /* Main.storyboard */,
+				8B7355C61C6EDCDB009CDAF7 /* MainTableViewCell.swift */,
+				8B7355C71C6EDCDB009CDAF7 /* MainTableViewCell.xib */,
+				8B7355C41C6ED935009CDAF7 /* HomeTableViewController.swift */,
 				8B44538A1C6EAFBC00B8A584 /* Assets.xcassets */,
 				8B44538C1C6EAFBC00B8A584 /* LaunchScreen.storyboard */,
 				8B44538F1C6EAFBC00B8A584 /* Info.plist */,
@@ -96,6 +105,7 @@
 				TargetAttributes = {
 					8B44537F1C6EAFBC00B8A584 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 4UPP947FXM;
 					};
 				};
 			};
@@ -124,6 +134,7 @@
 			files = (
 				8B44538E1C6EAFBC00B8A584 /* LaunchScreen.storyboard in Resources */,
 				8B44538B1C6EAFBC00B8A584 /* Assets.xcassets in Resources */,
+				8B7355C91C6EDCDB009CDAF7 /* MainTableViewCell.xib in Resources */,
 				8B4453891C6EAFBC00B8A584 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,7 +146,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B4453861C6EAFBC00B8A584 /* ViewController.swift in Sources */,
+				8B7355C51C6ED935009CDAF7 /* HomeTableViewController.swift in Sources */,
+				8B7355C31C6ED4AA009CDAF7 /* Contact.swift in Sources */,
+				8B7355C81C6EDCDB009CDAF7 /* MainTableViewCell.swift in Sources */,
 				8B4453841C6EAFBC00B8A584 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,6 +260,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = solsticeContacts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pdubslax.solsticeContacts;
@@ -258,6 +272,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = solsticeContacts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pdubslax.solsticeContacts;
@@ -284,6 +299,7 @@
 				8B4453941C6EAFBC00B8A584 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
