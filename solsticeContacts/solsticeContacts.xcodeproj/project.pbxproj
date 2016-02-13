@@ -15,6 +15,7 @@
 		8B7355C51C6ED935009CDAF7 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7355C41C6ED935009CDAF7 /* HomeTableViewController.swift */; };
 		8B7355C81C6EDCDB009CDAF7 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7355C61C6EDCDB009CDAF7 /* MainTableViewCell.swift */; };
 		8B7355C91C6EDCDB009CDAF7 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B7355C71C6EDCDB009CDAF7 /* MainTableViewCell.xib */; };
+		8B7355CB1C6F0F5D009CDAF7 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7355CA1C6F0F5D009CDAF7 /* DetailTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		8B7355C41C6ED935009CDAF7 /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		8B7355C61C6EDCDB009CDAF7 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		8B7355C71C6EDCDB009CDAF7 /* MainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		8B7355CA1C6F0F5D009CDAF7 /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				8B4453871C6EAFBC00B8A584 /* Main.storyboard */,
 				8B7355C61C6EDCDB009CDAF7 /* MainTableViewCell.swift */,
 				8B7355C71C6EDCDB009CDAF7 /* MainTableViewCell.xib */,
+				8B7355CA1C6F0F5D009CDAF7 /* DetailTableViewController.swift */,
 				8B7355C41C6ED935009CDAF7 /* HomeTableViewController.swift */,
 				8B44538A1C6EAFBC00B8A584 /* Assets.xcassets */,
 				8B44538C1C6EAFBC00B8A584 /* LaunchScreen.storyboard */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B7355C51C6ED935009CDAF7 /* HomeTableViewController.swift in Sources */,
+				8B7355CB1C6F0F5D009CDAF7 /* DetailTableViewController.swift in Sources */,
 				8B7355C31C6ED4AA009CDAF7 /* Contact.swift in Sources */,
 				8B7355C81C6EDCDB009CDAF7 /* MainTableViewCell.swift in Sources */,
 				8B4453841C6EAFBC00B8A584 /* AppDelegate.swift in Sources */,

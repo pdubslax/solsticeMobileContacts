@@ -12,10 +12,13 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var mainImageView: UIImageView!
     
+    @IBOutlet var phoneLabel: UILabel!
     override func awakeFromNib() {
         
         super.awakeFromNib()
         self.mainImageView.contentMode = .ScaleAspectFit
+        self.mainImageView.layer.cornerRadius = self.mainImageView.frame.size.width / 2
+        self.mainImageView.clipsToBounds = true
         // Initialization code
     }
 

@@ -24,6 +24,34 @@
             </objects>
             <point key="canvasLocation" x="1988" y="2122"/>
         </scene>
+        <!--Detail Table View Controller-->
+        <scene sceneID="cq7-bg-WcL">
+            <objects>
+                <tableViewController storyboardIdentifier="DetailTableViewControllerID" id="slU-6R-6IH" customClass="DetailTableViewController" customModule="solsticeContacts" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dGr-0M-ROF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Nz7-lE-5Yw">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nz7-lE-5Yw" id="BiO-a6-yl2">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="slU-6R-6IH" id="VLR-eo-3yR"/>
+                            <outlet property="delegate" destination="slU-6R-6IH" id="0SZ-mH-ueA"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GXt-ky-lHZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2911" y="2109"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="K1v-GE-XfS">
             <objects>

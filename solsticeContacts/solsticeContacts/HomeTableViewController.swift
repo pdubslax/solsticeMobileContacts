@@ -18,16 +18,19 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.getJSONData()
+        self.getJSONDataForInitialFeed()
         
         let nib = UINib(nibName: "MainTableViewCell", bundle: nil)
         
         self.tableView.registerNib(nib, forCellReuseIdentifier: "customCell")
         
+        self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "AvenirNext-Regular", size: 20)!]
+
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    func getJSONData(){
+    func getJSONDataForInitialFeed(){
         let requestURL: NSURL = NSURL(string: "https://solstice.applauncher.com/external/contacts.json")!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
         let session = NSURLSession.sharedSession()
@@ -92,6 +95,11 @@ class HomeTableViewController: UITableViewController {
         
         cell.mainImageView.image = self.imageList[indexPath.row]
         
+        let workPhone = self.contactList[indexPath.row].phone
+        cell.phoneLabel?.text = workPhone.objectForKey("home") as? String
+        
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        
 
         return cell
     }
@@ -102,13 +110,10 @@ class HomeTableViewController: UITableViewController {
     }
     
     func downloadImage(url: NSURL, index :Int) {
-        print("Download Started")
-        print("lastPathComponent: " + (url.lastPathComponent ?? ""))
+       
         getDataFromUrl(url) { (data, response, error)  in
             dispatch_async(dispatch_get_main_queue()) { () -> Void in
                 guard let data = data where error == nil else { return }
-                print(response?.suggestedFilename ?? "")
-                print("Download Finished")
                 let newImage = UIImage(data: data)
                 self.imageList[index] = newImage!
                 self.tableView.reloadData()
@@ -123,6 +128,12 @@ class HomeTableViewController: UITableViewController {
             }.resume()
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as DetailTableViewController
+        self.navigationController?.pushViewController(secondViewController, animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.
