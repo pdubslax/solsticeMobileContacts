@@ -11,7 +11,6 @@ import UIKit
 class HomeTableViewController: UITableViewController {
 
     
-    
     var contactList:[Contact] = []
     var imageList:[UIImage] = []
     
@@ -131,8 +130,20 @@ class HomeTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as DetailTableViewController
-        self.navigationController?.pushViewController(secondViewController, animated: true)
+        performSegueWithIdentifier("pushDetailView", sender: self.contactList[indexPath.row])
+        
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "All Contacts"
+        navigationItem.backBarButtonItem = backItem
+        navigationController?.navigationBar.tintColor = UIColor.blackColor()
+        
+        let dest = segue.destinationViewController as! DetailTableViewController
+        dest.contact = sender as! Contact
+        
     }
 
     /*

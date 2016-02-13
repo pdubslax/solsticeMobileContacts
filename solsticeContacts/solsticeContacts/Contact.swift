@@ -17,6 +17,16 @@ class Contact: NSObject {
     var phone : NSMutableDictionary
     var smallImageURL : String
     
+    override init() {
+        self.birthdate = ""
+        self.company = ""
+        self.detailsURL = ""
+        self.employeeID = 0
+        self.name = ""
+        self.phone = [:]
+        self.smallImageURL = ""
+    }
+    
     init(birthdate : String , company : String,detailsURL : String,employeeID : NSNumber,name : String,phone : NSMutableDictionary,smallImageURL : String) {
         self.birthdate = birthdate
         self.company = company

@@ -19,6 +19,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Solstice Mobile Contacts" id="142-Ve-Caq"/>
+                    <connections>
+                        <segue destination="slU-6R-6IH" kind="show" identifier="pushDetailView" id="dMQ-vf-Vq0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwu-fY-81i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -34,7 +37,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Nz7-lE-5Yw">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nz7-lE-5Yw" id="BiO-a6-yl2">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>

@@ -10,6 +10,8 @@ import UIKit
 
 class DetailTableViewController: UITableViewController {
 
+    var contact : Contact = Contact.init()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

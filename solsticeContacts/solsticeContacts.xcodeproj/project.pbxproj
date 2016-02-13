@@ -25,7 +25,7 @@
 		8B44538A1C6EAFBC00B8A584 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B44538D1C6EAFBC00B8A584 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B44538F1C6EAFBC00B8A584 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B7355C21C6ED4AA009CDAF7 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contact.swift; path = solsticeContacts/Contact.swift; sourceTree = "<group>"; };
+		8B7355C21C6ED4AA009CDAF7 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		8B7355C41C6ED935009CDAF7 /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		8B7355C61C6EDCDB009CDAF7 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		8B7355C71C6EDCDB009CDAF7 /* MainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
@@ -46,7 +46,6 @@
 		8B4453771C6EAFBC00B8A584 = {
 			isa = PBXGroup;
 			children = (
-				8B7355C21C6ED4AA009CDAF7 /* Contact.swift */,
 				8B4453821C6EAFBC00B8A584 /* solsticeContacts */,
 				8B4453811C6EAFBC00B8A584 /* Products */,
 			);
@@ -63,6 +62,7 @@
 		8B4453821C6EAFBC00B8A584 /* solsticeContacts */ = {
 			isa = PBXGroup;
 			children = (
+				8B7355C21C6ED4AA009CDAF7 /* Contact.swift */,
 				8B4453831C6EAFBC00B8A584 /* AppDelegate.swift */,
 				8B4453871C6EAFBC00B8A584 /* Main.storyboard */,
 				8B7355C61C6EDCDB009CDAF7 /* MainTableViewCell.swift */,
