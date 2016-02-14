@@ -112,7 +112,7 @@ class DetailTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 5
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -122,6 +122,10 @@ class DetailTableViewController: UITableViewController {
         }else if section == 1{
             return 3
         }else if section == 2{
+            return 1
+        }else if section == 3{
+            return 1
+        }else if section == 4{
             return 1
         }
         return 0
@@ -152,9 +156,21 @@ class DetailTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("phoneListingCell")!
             cell.textLabel?.numberOfLines = 2
             
-            cell.detailTextLabel?.text = ""
+            cell.detailTextLabel?.text = "Open in Maps"
             cell.textLabel?.text = (self.contactDetailObject.address.objectForKey("street") as? String)! + " \n" + (self.contactDetailObject.address.objectForKey("city") as? String)! + ", " + (self.contactDetailObject.address.objectForKey("state") as? String)! + " " + (self.contactDetailObject.address.objectForKey("zip") as? String)!
             
+            return cell
+        }
+        else if indexPath.section == 3{
+            let cell = tableView.dequeueReusableCellWithIdentifier("phoneListingCell")!
+            cell.textLabel?.text = self.contactDetailObject.email as String
+            cell.detailTextLabel?.text = "Send Email"
+            return cell
+        }
+        else if indexPath.section == 4{
+            let cell = tableView.dequeueReusableCellWithIdentifier("phoneListingCell")!
+            cell.textLabel?.text = self.contactDetailObject.website as String
+            cell.detailTextLabel?.text = "Visit Site"
             return cell
         }
         else{
@@ -171,6 +187,8 @@ class DetailTableViewController: UITableViewController {
             return 35.0
         }else if indexPath.section==2{
             return 60.0
+        }else if indexPath.section == 3 || indexPath.section == 4{
+            return 35.0
         }else{
             return 40.0
         }
@@ -186,6 +204,10 @@ class DetailTableViewController: UITableViewController {
         }
         else if section == 2{
             header.textLabel?.text = "Address:"
+        }else if section == 3{
+            header.textLabel?.text = "Email:"
+        }else if section == 4{
+            header.textLabel?.text = "Website:"
         }
         header.textLabel?.font = UIFont(name: "AvenirNext-Medium", size: 18)!
     }

@@ -22,7 +22,12 @@ class ContactDetail: NSObject {
         self.largeImageURL = ""
         self.email = ""
         self.website = ""
-        self.address = [:]
+        self.address = [
+            "street" : "",
+            "city" : "",
+            "state" : "",
+            "zip" : ""
+        ]
     }
     
     init( employeeID : NSNumber, favorite : Bool, largeImageURL : String, email : String, website : String, address : NSMutableDictionary) {
