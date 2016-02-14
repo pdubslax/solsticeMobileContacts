@@ -254,6 +254,13 @@ class DetailTableViewController: UITableViewController {
             mapItem.name = self.contact.name
             mapItem.openInMapsWithLaunchOptions(options)
         
+        }else if indexPath.section == 3{
+            let email = self.contactDetailObject.email
+            let url = NSURL(string: "mailto:\(email)")
+            UIApplication.sharedApplication().openURL(url!)
+        }
+        else if indexPath.section == 4{
+            UIApplication.sharedApplication().openURL(NSURL(string: self.contactDetailObject.website)!)
         }
         
         
